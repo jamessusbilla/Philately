@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Analytics</h1>
+<section class="admin-container">
+	<div class="admin-item-in-container">
+		<p>{{num_accounts}} Accounts</p>
+	</div>
+	<div class="admin-item-in-container">
+		<p>{{num_postal}} Postal Records</p>
+	</div>
+	<div class="admin-item-in-container">
+		<p>{{num_links}} Links</p>
+	</div>
+</section>
+<br/>
+<h1>Administration</h1>
+<section class="admin-container">
+	<div class="admin-item-in-container">
+		<p>Messages</p>
+		<p><a href="{% url 'contactList' %}">{{unread_messages}} unread Messages</a></p>
+	</div>
+	<div class="admin-item-in-container">
+		<p>Postal Content</p>
+		<p><a href="{% url 'createpost' %}">Add new post</a></p>
+		<p><a href="{% url 'adminList' %}">View Posts</a></p>
+	</div>
+	<div class="admin-item-in-container">
+		<p>Accounts</p>
+		<p><a href="{% url 'signup' %}">Create an Admin Account</a></p>
+	</div>
+	<div class="admin-item-in-container">
+		<p>Sub Category</p>
+		<p><a href="{% url 'subcategorylist' %}">View Sub Categories</a></p>
+		<p><a href="{% url 'subcategorycreate' %}">Create Sub Categories</a></p>
+	</div>
+	<div class="admin-item-in-container">
+		<p>Add Slideshow to your post</p>
+		<p><a href="{% url 'postalimagelist' %}">View Postal Images</a></p>
+		<p><a href="{% url 'postalimagecreate' %}">Create Postal Images</a></p>
+	</div>
+	<div class="admin-item-in-container">
+		<p>About Us</p>
+		<p><a href="{% url 'createhistory' %}">Add/Replace Current About Us Page</a></p>
+		<p><a href="{% url 'listhistory' %}">View Current About Us version</a></p>
+	</div>
+	<div class="admin-item-in-container">
+		<p>Links</p>
+		<p><a href="{% url 'createlink' %}">Create Links</a></p>
+		<p><a href="{% url 'listlink' %}">View links added</a></p>
+	</div>
+	<div class="admin-item-in-container">
+		<p><a href="{% url 'admin:index' %}">Django Administration</a></p>
+	</div>
+</section>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %} 
+{% block content %}
+<button class="back" onclick="javascript:history.back();">Go Back</button>
+<h1>Telegrams</h1>
+<div>
+    <div>
+        <div class="centred">
+            {% for post in telegrams %}
+	<a href="{% url 'postalDetail' post.slug  %}">
+	<section class="center">
+            <div class="flexing">
+		<img class="widthimg" src="{{ post.image.url}}" alt="{{ post.postTitle }}">
+                <div class="separate">
+                    <h2>{{ post.postTitle }}</h2>
+		    <br/>
+                    <p>Posted by {{ post.philatelyAuthor.firstName }} on {{ post.datePosted }}</p>
+                    <p>Category: {{ post.get_category_display }}</p>
+		    <p>Sub Category: {{post.sub_category}}</p>
+		<hr/>
+                    <p>{{post.postContent|slice:":200"|safe }}</p>
+                </div>
+            </div>
+	</section>
+	</a>
+    {% empty %}
+    <li>No postal records yet, contact foundation for information.</li>
+
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+{% if is_paginated %}
+  <ul class="center">
+    {% if page_obj.has_previous %}
+    <li><a href="?page={{ page_obj.previous_page_number }}">&laquo; PREV </a></li>
+    {% endif %}
+    {% if page_obj.has_next %}
+    <li><a href="?page={{ page_obj.next_page_number }}"> NEXT &raquo;</a></li>
+    {% endif %}
+  </ul>
+  </nav>
+</div>
+{% endif %}
+{%endblock%}

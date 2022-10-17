@@ -1,0 +1,16 @@
+{% extends 'base.html' %} 
+{% block content %}
+<button class="back" onclick="javascript:history.back();">Go Back</button>
+<div>
+  <div>
+    <div>
+      <div>
+        <h1>{{ object.aboutUsTitle }}</h1>
+        <p>{{ object.content|safe }}</p>
+        <p>{{ object.datePosted}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

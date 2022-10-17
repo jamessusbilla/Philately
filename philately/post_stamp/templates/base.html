@@ -1,0 +1,89 @@
+<!DOCTYPE>
+<html>
+    <head>
+	{% load static %}
+        <title>{% block title %}Christchurch Philatelic Foundation{% endblock %}</title>
+        <meta name="google" content="notranslate" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    	<link rel="shortcut icon" type="image/jpg" href="{% static 'images/logoicon.ico' %}"/>
+    </head>
+
+    <body>
+	<header>
+		<ul>
+			<li><img id="responsiveImage" src="{% static 'images/logo1.JPG' %}" alt="Christchurch Philatelic Foundation custom logo"/></li>			
+			<li class="list">{% if user.is_authenticated %}<a class="resizeText shado" href="{% url 'logout' %}">Sign Out</a>{% else %}<a class="resizeText shado" href="{% url 'login' %}">Sign In</a>{% endif %}</li>
+		</ul>
+	</header>
+	<nav class="navbar">
+	        <label class="tog" for="menu_toggle">&#9776;</label>
+            	<input type="checkbox" id="menu_toggle"/>
+		<ul class="navigation">
+			<li><a class="shado" href="{% url 'home' %}">Home</a></li>
+			<li><a class="shado" href="{% url 'listhistory' %}">About Us</a></li>
+			<li><a class="shado" href="{% url 'nzpostory' %}">Postal Museum</a></li>
+			<li><a class="shado" href="{% url 'nzposthistory' %}">NZ Post Office History</a></li>
+			<li><a class="shado" href="{% url 'pigeonpost' %}">Pigeon Post</a></li>
+			<li><a class="shado" href="{% url 'othercollection' %}">Other Collections</a></li>
+			<div class="search-bar">
+				<form id="search" action="{% url 'postalList' %}" method="get">
+  					<input name="q" type="text" id="text" placeholder="Search...">
+  					<input type="submit" id="search-submit" value="Search">
+				</form>
+			</div>
+
+		</ul>
+	</nav>
+	<main>
+        {% block content %}
+ 	<video id="wide-screen" autoplay muted loop>
+  		<source src="{% static 'videos/b2.mp4'%}" type="video/mp4">
+	</video> 
+	<br/>
+	<br/>
+	<h1>Greetings to All</h1>
+	<p class="homeparag">Christchurch Philatelic Foundation was originally conceived in 1974 but 3 years later the brand name of the foundation changes to the current name which one has at the present.</p> 
+
+<p class="homeparag">
+Christchurch Philatelic foundation mostly consist of individuals that are in the aged group of between 65 & 85 years old, such ages of the members was a cause of significant concern among the foundations current members since this means that the Philatelic foundations NZ postal history knowledge collected over the years and all the other artifacts that the foundation had collected, bought from trade me sellers for years will only go to waste. To overcome the issue of the knowledge gathered from over the years and history built into it being forgotten and lost, Christchurch Philatelic Foundation want to migrate all the knowledge, history as well as artifacts to a website which will last forever, be usable and interactive.</p>
+
+        {% endblock content %}
+	</main>
+<br/>
+<br/>
+    <footer class="grid-container">
+        <section class="grid-item">
+		<li>Contacts</li>
+		<li>philatelicf@gmail.com</li>
+		<li>grmkiwi.co.nz</li>
+<br/><hr/>
+		<li>Address</li>
+            	<li>67 Mandeville St</li>
+		<li>Riccarton, Christchurch</li>
+		<li>New Zealand, 8011</li>
+
+        </section>
+        <section class="grid-item">
+	<p id="centro">Find Us</p>
+<iframe id="map" src="https://www.google.com/maps/embed?pb=!4v1621650107792!6m8!1m7!1s0OEJXWSybNA9U3Bj6dm5kw!2m2!1d-43.53257413603271!2d172.6065202674165!3f272.20590575581923!4f-7.128675182773193!5f1.1924812503605782" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+        </section>
+        <section class="grid-item">
+		<li>Links</li>
+            	<li><a class="links shado" href="{% url 'contact' %}">Contact Us Now</a></li>
+		<li><a class="links shado" href="#">Privacy Policy</a></li>
+		<li><a class="links shado" href="#">Terms & Conditions</a></li>
+            	<li><a class="links shado" href="{% url 'listlink' %}">External Links</a></li>
+		<li>{% if user.is_authenticated %}<a class="links shado" href="{% url 'adminview' %}">Christchurch Philatelic Foundation Administration</a>{% endif %}</li>
+
+        </section>
+    </footer>
+        <section>
+<p id="copyright">CC BY 2021 Christchurch Philatelic Foundation<p>
+        </section>
+
+	<script src="{% static 'js/slides.js' %}"></script>
+
+    </body>
+</html>

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<button class="back" onclick="javascript:history.back();">Go Back</button>
+<section class="flex-row">
+<ul class="center">
+    {% for list in aboutList %}
+    <h1>{{ list.aboutUsTitle }}</h1>
+<li><img class="responsiveImages" src="{{list.image.url}}" alt="{{list.aboutUsTitle}}"></li>
+<br/>
+    <li><p>{{ list.content|safe}}</p></li>
+    <li><p>{{ list.datePosted }}</p></li>
+	<br/>
+	<br/>
+	{% if user.is_staff %}
+                    <a href="{% url 'updateaboutus' list.slug  %}">Update</a>
+                    <a href="{% url 'deleteaboutus' list.slug  %}">Delete</a>
+	{% else %}
+	<br/>
+	{% endif %}
+    {% empty %}
+    <li>No added version yet.</li>
+    {% endfor %}
+</ul>
+</section>
+{% endblock %}

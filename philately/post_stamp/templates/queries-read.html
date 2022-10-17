@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<button class="back" onclick="javascript:history.back();">Go Back</button>
+<h1>Messages Read</h1>
+<ul class="center">
+    {% for list in readList %}
+    <li>{{ list.slug }}</li>
+    <li>{{ list.firstName }}</li>
+    <li>{{ list.lastName }}</li>
+    <li>{{ list.email }}</li>
+    <li>{{ list.content }}</li>
+    <li>{{ list.date }}</li>
+    <a href="{% url 'deleteMail' list.slug  %}">Delete</a>
+    <a href="{% url 'viewMail' list.slug  %}">View</a>
+
+
+
+    <hr/>
+    {% empty %}
+    <li>No post records yet.</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<button class="back" onclick="javascript:history.back();">Go Back</button>
+<h1>Introduction to Postal Museum</h1>
+ 	<video class="width" controls>
+  		<source src="{% static 'videos/b2.mp4'%}" type="video/mp4">
+	</video> 
+	<br/>
+	<br/>
+
+
+<h1>Postal Museum</h1>
+
+<section class="flex-row">
+
+  <figure class="flex-column">
+<a href="{% url 'FRANKINGMACHINES' %}">
+    <img src="{% static 'images/frank.jpg' %}" alt="Christchurch Philatelic Foundation custom logo"/>
+    <figcaption class="style5">Franking Machines</figcaption>
+</a>
+  </figure>
+
+  <figure class="flex-column">
+<a href="{% url 'SavingsBank' %}">
+    <img src="{% static 'images/savings.JPG' %}" alt="Christchurch Philatelic Foundation custom logo"/>
+    <figcaption class="style5">Post Office Savings Bank - Money Boxes</figcaption>
+</a>
+  </figure>
+
+  <figure class="flex-column">
+<a href="{% url 'EquipmentOffice' %}">
+    <img src="{% static 'images/postbox.jpg' %}" alt="Christchurch Philatelic Foundation custom logo"/>
+    <figcaption class="style5">Post Office Equipments</figcaption>
+</a>
+  </figure>
+
+  <figure class="flex-column">
+<a href="{% url 'Telegrams' %}">
+    <img src="{% static 'images/telegram.JPG' %}" alt="Christchurch Philatelic Foundation custom logo"/>
+    <figcaption class="style5">Telegrams</figcaption>
+</a>
+  </figure>
+
+  <figure class="flex-column">
+<a href="{% url 'WarOffice' %}">
+    <img src="{% static 'images/war.jpg' %}" alt="Christchurch Philatelic Foundation custom logo"/>
+    <figcaption class="style5">Post Office at War</figcaption>
+</a>
+  </figure>
+
+  <figure class="flex-column">
+<a href="{% url 'PostMarkMachine' %}">
+    <img src="{% static 'images/stamp.jpg' %}" alt="Christchurch Philatelic Foundation custom logo"/>
+    <figcaption class="style5">Post Marking Machines</figcaption>
+</a>
+  </figure>
+
+</section>
+{%endblock%}

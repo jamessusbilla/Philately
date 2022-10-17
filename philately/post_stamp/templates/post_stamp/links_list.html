@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<button class="back" onclick="javascript:history.back();">Go Back</button>
+<h1>External Links</h1>
+<ul class="center">
+    {% for list in linkList %}
+    <a href="{{ list.url }}">{{ list.urlTitle }}</a>
+	<br/>
+	{% if user.is_staff %}
+<li>posted by {{ list.philatelyAuthor.firstName }}</li>
+{% endif %}
+	{% if user.is_staff %}
+
+    <a href="{% url 'updatelink' list.slug  %}">Update</a>
+    <a href="{% url 'deletelink' list.slug  %}">Delete</a>
+	<br/>
+	{% endif %}
+    {% empty %}
+    <li>No external links yet.</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %} 
+{% block content %}
+<button class="back" onclick="javascript:history.back();">Go Back</button>
+<div class="center">
+  <div>
+    <div>
+      <div>
+        <h1>{% block title %} {{ object.postTitle }} {% endblock title %}</h1>
+	<section class="slideshow">
+		<figure>
+			{% for img in postal.postalimage_set.all %}
+				<img class="slides" src="{{img.postalImage.url}}" alt="{{object.postTitle}}">
+
+				{% if forloop.last %}
+					<img src="{{ object.image.url}}" alt="{{ object.postTitle }}">
+				{% endif %}
+			{% endfor %}
+
+		</figure>
+	<br/>
+	<br/>
+
+	{% if forloop|length == 0 %}
+	<img src="{{ object.image.url}}" alt="{{ object.postTitle }}">
+	{% endif %}
+<br/>
+	</section>
+        <p>{{ object.postContent | safe }}</p>
+	<p>Category: {{object.get_category_display}}</p>
+	<p>Sub Category:{{object.sub_category}}</p>
+        <p>{{ object.philatelyAuthor }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

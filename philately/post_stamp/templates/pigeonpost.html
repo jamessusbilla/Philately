@@ -1,0 +1,20 @@
+{% extends "base.html" %} 
+{% load static %}
+{% block content %}
+<button class="back" onclick="javascript:history.back();">Go Back</button>
+<h1>Pigeon Post</h1>
+<section class="flex-row">
+  <figure class="flex-column">
+<a href="{% url 'NonNZ' %}">
+    <img class="responsiveImage" src="{% static 'images/logo.JPG' %}" alt="Christchurch Philatelic Foundation custom logo" style="width:100%"/>
+    <figcaption class="style5">Non-New Zealand Collections</figcaption>
+</a>
+  </figure>
+  <figure class="flex-column">
+<a href="{% url 'NZ' %}">
+    <img class="responsiveImage" src="{% static 'images/logo.JPG' %}" alt="Christchurch Philatelic Foundation custom logo" style="width:100%"/>
+    <figcaption class="style5">New Zealand Collections</figcaption>
+</a>
+  </figure> 
+</section>
+{%endblock%}

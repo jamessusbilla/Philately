@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<button class="back" onclick="javascript:history.back();">Go Back</button>
+<h1>Postal list</h1>
+<ul class="center">
+    {% for list in adminList %}
+<div class="flexing">
+    <li><img class="widthimg" src="{{ list.image.url }}" alt="{{list.postTitle}}"></li>
+<div class="separate">
+    <li>{{ list.postTitle }}</li>
+<br/>
+    <li>{{ list.postContent|safe}}</li>
+    <li>{{ list.get_category_display }}</li>
+	<hr/>
+    <li>{{ list.philatelyAuthor }}</li>
+</div>
+</div>
+                    <a href="{% url 'postalDetail' list.slug  %}">View</a>
+                    <a href="{% url 'updatepost' list.slug  %}">Update</a>
+                    <a href="{% url 'deletepost' list.slug  %}">Delete</a>
+
+    <hr/>
+    {% empty %}
+    <li>No postal records yet.</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

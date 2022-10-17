@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<button class="back" onclick="javascript:history.back();">Go Back</button>
+<h1>Postal Image List</h1>
+<ul class="center">
+    {% for list in postalImageList %}
+    <li>{{ list.postal }}</li>
+    <li><img src="{{ list.postalImage.url }}" alt="{{list.postal}}"></li>
+    <a href="{% url 'updatepostalimage' list.slug  %}">Update</a>
+    <a href="{% url 'deletepostalimage' list.slug  %}">Delete</a>
+    <hr/>
+    {% empty %}
+    <li>No postal images records yet.</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block form %}
+<button class="back" onclick="javascript:history.back();">Go Back</button>
+<h1>Contact Us</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <div class="form-actions">
+      <button type="submit">Send</button>
+    </div>
+</form>
+{% endblock %}

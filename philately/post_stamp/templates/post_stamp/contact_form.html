@@ -1,0 +1,18 @@
+{% extends "base.html" %} 
+{% block content %}
+<button class="back" onclick="javascript:history.back();">Go Back</button>
+<h1>Contact Us</h1>
+<form method="POST" enctype="multipart/form-data">
+  
+    <!-- Security token -->
+    {% csrf_token %}
+  
+    <!-- Using the formset -->
+    {{ form.as_p }}
+      
+    <input type="submit" value="Submit">
+</form>
+
+
+<br/>
+{% endblock %}

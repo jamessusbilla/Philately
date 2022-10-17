@@ -1,0 +1,36 @@
+{% extends "base.html" %} 
+{% load static %}
+{% block content %}
+<button class="back" onclick="javascript:history.back();">Go Back</button>
+<h1>New Zealand Post Office History</h1>
+<section class="flex-row">
+  <figure class="flex-column">
+<a href="{% url 'StampMachine' %}">
+    <img src="{% static 'images/stamp.jpg' %}" alt="Christchurch Philatelic Foundation custom logo"/>
+    <figcaption class="style5">Stamp Machines</figcaption>
+</a>
+  </figure>
+
+  <figure class="flex-column">
+<a href="{% url 'DateStamp' %}">
+    <img src="{% static 'images/logo.JPG' %}" alt="Christchurch Philatelic Foundation custom logo"/>
+    <figcaption class="style5">DateStamp</figcaption>
+</a>
+  </figure>
+
+  <figure class="flex-column">
+<a href="{% url 'FRANKINGMACHINES' %}">
+    <img src="{% static 'images/frank.jpg' %}" alt="Christchurch Philatelic Foundation custom logo"/>
+    <figcaption class="style5">Franking Machine</figcaption>
+</a>
+  </figure>
+
+  <figure class="flex-column">
+<a href="{% url 'NZWWOne' %}">
+    <img class="res" src="{% static 'images/war.jpg' %}" alt="Christchurch Philatelic Foundation custom logo"/>
+    <figcaption class="style2">NZ P & T in WW1</figcaption>
+</a>
+  </figure>
+
+
+{%endblock%}

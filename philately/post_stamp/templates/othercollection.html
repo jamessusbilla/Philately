@@ -1,0 +1,13 @@
+{% extends "base.html" %} 
+{% load static %}
+{% block content %}
+<h1>Other Collection</h1>
+<section class="flex-row">
+  <figure class="flex-column">
+<a href="{% url 'OtherPostOffistory' %}">
+    <img class="responsiveImage" src="{% static 'images/other.jpg' %}" alt="Christchurch Philatelic Foundation custom logo" style="width:100%"/>
+    <figcaption class="style5">Other Collections</figcaption>
+</a>
+  </figure>
+</section>
+{%endblock%}

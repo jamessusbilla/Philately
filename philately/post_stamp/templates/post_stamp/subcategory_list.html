@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    <button class="back" onclick="javascript:history.back();">Go Back</button>
+<h1>Sub Category List</h1>
+<ul class="center">
+    {% for list in subCategoryList %}
+    <li>{{ list.sub_category }}</li>
+    <a href="{% url 'updatesubcategory' list.slug  %}">Update</a>
+    <a href="{% url 'deletesubcategory' list.slug  %}">Delete</a>
+    <hr/>
+    {% empty %}
+    <li>No postal subcategory records yet.</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
