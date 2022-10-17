@@ -9,6 +9,5 @@ History is a significant component in every civilisation, if written, could tell
 </br>
 
 # Website Showcase
-Head over to this <a href="https://nzpostofficehistory.zapto.org/">Christchurch Philatelic Foundation</a>
+Head over to here to watch the <a href="https://youtu.be/aiuVL2qzXuE">video</a> or better yet experience it at <a href="https://nzpostofficehistory.zapto.org/">Christchurch Philatelic Foundation</a> to get a feel of it.
 
-# Project Code
